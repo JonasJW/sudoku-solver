@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "./static/styles.css">
+    <title>Sudoku Solver</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Sudoku Solver</h1>
+        <h3 class="hr-sect">Enter A Link To An Image</h3>
+        <form class="form-inline justify-content-center" action="/link" method="POST" enctype="multipart/form-data">
+            <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="gappx">
+                <input class="form-control" type="text" name="link">
+                <button class="btn btn-success" type="submit">Solve</button>
+            </div>
+            <!-- <p>https://i.ebayimg.com/00/s/MTAyNFgxMDI0/z/XioAAOSwcB5ZJR48/$_59.PNG</p>
+            <p>https://akademie-fuer-lernmethoden.de/wp-content/uploads/2011/05/Sudoku.jpg</p> -->
+        </form>
+        <h3 class="hr-sect">Upload An Image</h3>
+        <form class="form-inline justify-content-center" action="/result" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image">
+            <br>
+            <button class="btn btn-success" type="submit">Solve</button>
+        </form>
+        <hr>
+        <p>By Jonas Wallmann | <a href="https://github.com/JonasJW/sudoku-solver">Github</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+body {
+    text-align: center
+}
+
+.row {
+    display: flex;
+    flex-direction: row
+}
+
+.square {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: rgb(197, 197, 197);
+    border: 1px solid rgb(117, 117, 117);
+    flex: 0 0 auto;
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+.img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.labels {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.test {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.row1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 11.111%;
+    width: 100%;
+}
+
+.square1 {
+    flex: 1 1 auto;
+    height: 100%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.detected {
+    color: green;
+}
+
+p {
+    margin: 0;
+}
+
+.hr-sect {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.35);
+    margin: 16px 0px;
+    font-size: 18px;
+}
+.hr-sect::before, .hr-sect::after {
+	content: "";
+	flex-grow: 1;
+	background: rgba(0, 0, 0, 0.35);
+	height: 1px;
+	font-size: 0px;
+	line-height: 0px;
+	margin: 0px 16px;
+}
+
+h1 {
+    margin: 32px;
+}
+
+form {
+    margin: 32px;
+}
+
+hr {
+    margin-top: 50px;
+}

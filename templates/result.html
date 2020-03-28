@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "./static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sudoku Solver</h1>
+        <h3 class="hr-sect">Result</h3>
+        <p id="no-result" style="visibility: hidden; color: red">No solution found, interpretation of sudoku:</p>
+        <div class="wrapper justify-content-center" style="display: flex;">
+            <img class="image" src="" id="img" alt="Chart" width="100%" height="100%">
+            <div class="labels" id="labels">
+            </div>
+        </div>
+        <a href="/" class="btn btn-success my-3">Solve Another Sudoku</a>
+        <hr>
+        <p>By Jonas Wallmann | <a href="https://github.com/JonasJW/sudoku-solver">Github</a></p>
+    </div>
+    
+</body>
+
+<script>
+        data = "{{img}}"
+        data = data.replace("b&#39;", "") //to get rid of start curly brace code 
+        data = data.replace("&#39;", "")  //to get rid of end curly bracecode 
+
+        detected = JSON.parse("{{detected | safe}}")
+        result = JSON.parse("{{result | safe}}")
+        console.log(result)
+            
+        const img = document.getElementById("img")
+        const labels = document.getElementById("labels")
+        img.src = "data:image/png;base64,"+data; // set src
+
+        img.onload = () => {
+            for (let i = 0; i < 9; i++) {
+                labels.innerHTML += `<div class="row1" id="row${i}"></div>`
+            }
+    
+            if (result === false) {
+                document.getElementById('no-result').style.visibility = 'visible';
+            }
+            
+            const rowHeight = img.height / 9;
+            console.log(rowHeight)
+            for (let i = 0; i < 81; i++) {
+                const row = Math.floor(i / 9);
+                const detectedElement = detected[i] !== 0 ? detected[i] : ""
+                const element = result instanceof Array ? result[i] : detectedElement
+                document.getElementById(`row${row}`).innerHTML += `<div class="square1 ${detected[i] != 0 ? "detected" : ""}" style="line-height: ${rowHeight}px; font-size: ${rowHeight * 0.7}px;">${element}</div>`
+    
+            }
+        }
+
+
+</script>
+
+</html>
